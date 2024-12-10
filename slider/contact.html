@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #eef2f7;
+            color: #333;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .info, .quote, .hours, .social-media {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .quote::before, .quote::after {
+            content: '"';
+        }
+
+        .info {
+            color: #555;
+        }
+
+        .hours {
+            background: #f9fafc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-media a {
+            text-decoration: none;
+            color: #555;
+            transition: transform 0.3s ease, color 0.3s;
+        }
+
+        .social-media a img {
+            width: 30px;
+            height: 30px;
+            display: block;
+        }
+
+        .social-media a:hover {
+            transform: scale(1.2);
+            color: #007bff;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #007bff;
+            color: #ffffff;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .contact-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+        
+        <div class="info">
+            <p><strong>Email:</strong> support@elitlanguages.com</p>
+            <p><strong>Phone:</strong> +1 234 567 890</p>
+            <p><strong>Location:</strong> 123 Language St, Language City, CA 12345</p>
+        </div>
+        
+        <div class="quote">The limits of my language mean the limits of my world. – Ludwig Wittgenstein</div>
+        <div class="quote">Language is the road map of a culture. – Rita Mae Brown</div>
+
+        <div class="hours">
+            <h3>Operating Hours</h3>
+            <p>Monday to Friday: 9:00 AM - 6:00 PM</p>
+            <p>Saturday: 10:00 AM - 4:00 PM</p>
+            <p>Closed on Sundays and Public Holidays</p>
+        </div>
+
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Logo">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Twitter">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter Logo">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram Logo">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn Logo">
+            </a>
+        </div>
+
+        <a href="mailto:support@elitlanguages.com" class="contact-btn">Get in Touch</a>
+    </div>
+
+</body>
+</html>

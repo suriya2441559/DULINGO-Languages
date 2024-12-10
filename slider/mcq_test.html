@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Test with Timer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        .timer {
+            font-size: 1.2rem;
+            color: #dc3545;
+            text-align: right;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question h3 {
+            font-size: 1.2rem;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+
+        .options label {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            padding: 8px 10px;
+            background-color: #f1f3f5;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .options label:hover {
+            background-color: #e9ecef;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        /* Custom Styles for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .submit-button {
+                font-size: 1rem;
+                padding: 12px;
+            }
+
+            .result {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MCQ Test</h1>
+
+        <!-- Timer Display -->
+        <div class="timer" id="timer">Time Left: 00:02:00</div>
+        
+        <form id="testForm">
+            <!-- 10 questions structure -->
+            <div class="question">
+                <h3>1. What is the capital of France?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="0"> Berlin</label>
+                    <label><input type="radio" name="q1" value="0"> Madrid</label>
+                    <label><input type="radio" name="q1" value="1"> Paris</label>
+                    <label><input type="radio" name="q1" value="0"> Rome</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Which planet is known as the Red Planet?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="0"> Jupiter</label>
+                    <label><input type="radio" name="q2" value="1"> Mars</label>
+                    <label><input type="radio" name="q2" value="0"> Venus</label>
+                    <label><input type="radio" name="q2" value="0"> Saturn</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. What is the largest ocean on Earth?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="1"> Pacific Ocean</label>
+                    <label><input type="radio" name="q3" value="0"> Atlantic Ocean</label>
+                    <label><input type="radio" name="q3" value="0"> Indian Ocean</label>
+                    <label><input type="radio" name="q3" value="0"> Arctic Ocean</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>4. Who wrote 'Romeo and Juliet'?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="1"> William Shakespeare</label>
+                    <label><input type="radio" name="q4" value="0"> Charles Dickens</label>
+                    <label><input type="radio" name="q4" value="0"> Mark Twain</label>
+                    <label><input type="radio" name="q4" value="0"> Jane Austen</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>5. What is the square root of 64?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="1"> 8</label>
+                    <label><input type="radio" name="q5" value="0"> 6</label>
+                    <label><input type="radio" name="q5" value="0"> 10</label>
+                    <label><input type="radio" name="q5" value="0"> 7</label>
+                </div>
+            </div>
+
+            <button type="button" class="submit-button" onclick="submitTest()">Submit Test</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // Timer Script
+        let timeLeft = 120; // 2 minutes in seconds
+        const timerElement = document.getElementById('timer');
+
+        const timer = setInterval(() => {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            // Display hours:minutes:seconds format
+            timerElement.textContent = `Time Left: 00:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+            timeLeft--;
+
+            if (timeLeft < 0) {
+                clearInterval(timer);
+                submitTest();  // Auto-submit when timer reaches 0
+            }
+        }, 1000);
+
+        // Function to calculate and display score
+        function submitTest() {
+            clearInterval(timer); // Stop the timer on submit
+
+            let score = 0;
+            const form = document.getElementById('testForm');
+            const correctAnswers = {
+                q1: '1', q2: '1', q3: '1', q4: '1', q5: '1'
+            };
+
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                const selected = form.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === correctAnswer) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerText = `You scored ${score} out of 5.`;
+        }
+    </script>
+</body>
+</html>

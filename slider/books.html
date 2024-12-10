@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Language Books</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .book-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .book-title {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .price {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .review {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .buy-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Recommended Language Books</h1>
+    <div class="container">
+        <div class="book-card">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.2lxnE5d4X_kWtSBr9bW0sAHaHa&pid=Api&P=0&h=220" alt="Book Title 1">
+            <div class="book-title">English Grammar in Use</div>
+            <div class="price">$29.99</div>
+            <div class="review">"Great for self-study!"</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=English%20Grammar%20in%20Use&price=29.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.yG6E824XaZJH64NQNZgJrQHaLb&pid=Api&P=0&h=220" alt="Book Title 2">
+            <div class="book-title">Fluent in 3 Months</div>
+            <div class="price">$19.99</div>
+            <div class="review">"Inspiring and practical!"</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Fluent%20in%203%20Months&price=19.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.ayCI_a1H2dxLdkrSOY9wmQHaLE&pid=Api&P=0&h=220" alt="Book Title 3">
+            <div class="book-title">Easy Spanish Step-By-Step</div>
+            <div class="price">$25.99</div>
+            <div class="review">"Perfect for beginners."</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Easy%20Spanish%20Step-By-Step&price=25.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.vRazwGdq9ByoY_f6yhnXbQHaKf&pid=Api&P=0&h=220" alt="Book Title 4">
+            <div class="book-title">Japanese From Zero!</div>
+            <div class="price">$34.99</div>
+            <div class="review">"Fun way to learn Japanese!"</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Japanese%20From%20Zero!&price=34.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.CPw6IwfrY-zntsOJ_c4p-QHaLM&pid=Api&P=0&h=220" alt="Book Title 5">
+            <div class="book-title">Mandarin Chinese for Beginners</div>
+            <div class="price">$22.99</div>
+            <div class="review">"Great resource for new learners."</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Mandarin%20Chinese%20for%20Beginners&price=22.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.ySG470hJThuuXmLXjILz5QHaLI&pid=Api&P=0&h=220" alt="Book Title 6">
+            <div class="book-title">Italian Grammar Drills</div>
+            <div class="price">$18.99</div>
+            <div class="review">"Very helpful for mastering grammar."</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Italian%20Grammar%20Drills&price=18.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.Lp5yYJeH9jJWO0ct_AMSXQAAAA&pid=Api&P=0&h=220" alt="Book Title 7">
+            <div class="book-title">French Made Simple</div>
+            <div class="price">$24.99</div>
+            <div class="review">"Clear and concise explanation."</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=French%20Made%20Simple&price=24.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.tWxjGzN2ub_a77g2q48ojgHaJs&pid=Api&P=0&h=220" alt="Book Title 8">
+            <div class="book-title">German Quickly</div>
+            <div class="price">$29.99</div>
+            <div class="review">"Great for quick learning."</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=German%20Quickly&price=29.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.0zqcGm3y8fBk6BErok_3gQHaJl&pid=Api&P=0&h=220" alt="Book Title 9">
+            <div class="book-title">Korean Made Simple</div>
+            <div class="price">$21.99</div>
+            <div class="review">"Excellent for beginners!"</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Korean%20Made%20Simple&price=21.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.fLDv9yDUSuOmPoB-c49DOwHaJS&pid=Api&P=0&h=220" alt="Book Title 10">
+            <div class="book-title">Russian Grammar in Use</div>
+            <div class="price">$27.99</div>
+            <div class="review">"A comprehensive guide!"</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Russian%20Grammar%20in%20Use&price=27.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.YJEBBL3giR7Ukn8B4bemNQHaHa&pid=Api&P=0&h=220" alt="Book Title 11">
+            <div class="book-title">Portuguese for Dummies</div>
+            <div class="price">$19.99</div>
+            <div class="review">"Great for learning basics."</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Portuguese%20for%20Dummies&price=19.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.-A8L14vS4tqu9oapSVCleAHaL6&pid=Api&P=0&h=220" alt="Book Title 12">
+            <div class="book-title">Arabic for Dummies</div>
+            <div class="price">$23.99</div>
+            <div class="review">"Easy to follow along."</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Arabic%20for%20Dummies&price=23.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.O_X9_HObZcXMV1riqIIMzwHaIa&pid=Api&P=0&h=220" alt="Book Title 13">
+            <div class="book-title">Hindi for Beginners</div>
+            <div class="price">$16.99</div>
+            <div class="review">"Very informative!"</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Hindi%20for%20Beginners&price=16.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.LqJaZ0ef01bON_s3saryRQHaJQ&pid=Api&P=0&h=220" alt="Book Title 14">
+            <div class="book-title">Bengali Made Easy</div>
+            <div class="price">$18.99</div>
+            <div class="review">"Helpful for learning quickly."</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Bengali%20Made%20Easy&price=18.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.TZJafjbrxyAfL0DpLmf7JAHaKh&pid=Api&P=0&h=220" alt="Book Title 15">
+            <div class="book-title">Swahili for Beginners</div>
+            <div class="price">$15.99</div>
+            <div class="review">"A great introduction!"</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Swahili%20for%20Beginners&price=15.99'">Buy</button>
+        </div>
+
+        <div class="book-card">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.EnGhvv7ihv6jQlVLR1OQGwHaD7&pid=Api&P=0&h=220" alt="Book Title 16">
+            <div class="book-title">Turkish Grammar in Practice</div>
+            <div class="price">$26.99</div>
+            <div class="review">"Detailed explanations!"</div>
+            <button class="buy-button" onclick="location.href='checkout.html?title=Turkish%20Grammar%20in%20Practice&price=26.99'">Buy</button>
+        </div>
+    </div>
+
+</body>
+</html>

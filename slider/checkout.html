@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/000/695/792/non_2x/electronic-bill-payment-concept-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .details, .payment-methods {
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-align: left; /* Align text to the left */
+        }
+
+        .total {
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .pay-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%; /* Full width button */
+        }
+
+        .pay-button:hover {
+            background-color: #218838;
+        }
+
+        label {
+            display: block; /* Display labels as block for better alignment */
+            margin: 10px 0; /* Spacing between labels */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Checkout</h1>
+
+        <div class="details">
+            <p><strong>Book Title:</strong> <span id="book-title"></span></p>
+            <p><strong>Price:</strong> $<span id="book-price"></span></p>
+            <p><strong>GST (5%):</strong> $<span id="gst"></span></p>
+            <p class="total">Total Price: $<span id="total-price"></span></p>
+        </div>
+
+        <div class="payment-methods">
+            <h3>Select Payment Method:</h3>
+            <label>
+                <input type="radio" name="payment" value="COD" checked> Cash on Delivery
+            </label>
+            <label>
+                <input type="radio" name="payment" value="UPI"> UPI
+            </label>
+            <label>
+                <input type="radio" name="payment" value="Card"> Debit/Credit Card
+            </label>
+        </div>
+
+        <button class="pay-button" onclick="confirmOrder()">Proceed to Pay</button>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get('title');
+        const price = parseFloat(params.get('price'));
+
+        // Calculate GST and total price
+        const gst = (price * 0.05).toFixed(2);
+        const totalPrice = (price + parseFloat(gst)).toFixed(2);
+
+        // Set book details in the HTML
+        document.getElementById('book-title').textContent = title;
+        document.getElementById('book-price').textContent = price.toFixed(2);
+        document.getElementById('gst').textContent = gst;
+        document.getElementById('total-price').textContent = totalPrice;
+
+        // Function to confirm order
+        function confirmOrder() {
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+            alert(`Order confirmed!\nPayment Method: ${paymentMethod}\nTotal Amount: $${totalPrice}`);
+        }
+    </script>
+</body>
+</html>

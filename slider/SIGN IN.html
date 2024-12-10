@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous">
+    <title>Sign In/Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #444;
+        }
+
+        .container {
+            position: relative;
+            width: 70vw;
+            height: 80vh;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #df4adf, #520852);
+            z-index: 6;
+            transform: translateX(100%);
+            transition: 1s ease-in-out;
+        }
+
+        .signin-signup {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            transition: opacity 0.5s;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            padding: 20px;
+            opacity: 0;  /* Start hidden */
+            transition: opacity 0.5s;
+        }
+
+        .sign-in-form.active,
+        .sign-up-form.active {
+            opacity: 1; /* Show when active */
+        }
+
+        .title {
+            font-size: 35px;
+            color: #df4adf;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            width: 100%;
+            height: 50px;
+            background: #f0f0f0;
+            margin: 10px 0;
+            border: 2px solid #df4adf;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-field i {
+            flex: 1;
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .input-field input {
+            flex: 5;
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 600;
+            color: #444;
+            padding-left: 10px;
+        }
+
+        .btn {
+            width: 150px;
+            height: 50px;
+            border: none;
+            border-radius: 50px;
+            background: #d4f4df;
+            color: #fff;
+            font-weight: 600;
+            margin: 10px 0;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #c03cce;
+        }
+
+        .social-text {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-icon {
+            height: 45px;
+            width: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            border: 1px solid #444;
+            border-radius: 50px;
+            margin: 0 5px;
+            transition: border 0.3s;
+        }
+
+        .social-icon:hover {
+            color: #df4adf;
+            border: 1px solid #df4adf;
+        }
+
+        .account-text {
+            margin-top: 10px;
+        }
+
+        .panels-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            transition: transform 0.5s ease;
+        }
+
+        .panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            transition: transform 0.5s ease;
+        }
+
+        .left-panel {
+            transform: translateX(-100%);
+        }
+
+        .right-panel {
+            transform: translateX(100%);
+        }
+
+        .container.sign-up-mode::before {
+            transform: translateX(0);
+        }
+
+        .container.sign-up-mode .left-panel {
+            transform: translateX(0);
+        }
+
+        .container.sign-up-mode .right-panel {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 779px) {
+            .container {
+                width: 100vw;
+                height: 100vh;
+            }
+        }
+
+        @media (max-width: 635px) {
+            .signin-signup {
+                flex-direction: column;
+            }
+
+            .panel {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="signin-signup">
+            <form action="" class="sign-in-form active">
+                <h2 class="title">Sign in</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <input type="submit" value="Login" class="btn">
+                <p class="social-text">Or Sign in with social platform</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                </div>
+                <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sign up</a></p>
+            </form>
+            <form action="" class="sign-up-form">
+                <h2 class="title">Sign up</h2>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <input type="submit" value="Sign up" class="btn">
+                <p class="social-text">Or Sign in with social platform</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                </div>
+                <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p>
+            </form>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Member of Brand?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos.</p>
+                    <button class="btn" id="sign-in-btn">Sign in</button>
+                </div>
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>New to Brand?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos.</p>
+                    <button class="btn" id="sign-up-btn">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const signInForm = document.querySelector('.sign-in-form');
+        const signUpForm = document.querySelector('.sign-up-form');
+
+        document.getElementById('sign-up-btn').addEventListener('click', () => {
+            container.classList.add('sign-up-mode');
+            signInForm.classList.remove('active');
+            signUpForm.classList.add('active');
+        });
+
+        document.getElementById('sign-in-btn').addEventListener('click', () => {
+            container.classList.remove('sign-up-mode');
+            signUpForm.classList.remove('active');
+            signInForm.classList.add('active');
+        });
+
+        document.getElementById('sign-up-btn2').addEventListener('click', (e) => {
+            e.preventDefault();
+            container.classList.add('sign-up-mode');
+            signInForm.classList.remove('active');
+            signUpForm.classList.add('active');
+        });
+
+        document.getElementById('sign-in-btn2').addEventListener('click', (e) => {
+            e.preventDefault();
+            container.classList.remove('sign-up-mode');
+            signUpForm.classList.remove('active');
+            signInForm.classList.add('active');
+        });
+    </script>
+</body>
+</html>
